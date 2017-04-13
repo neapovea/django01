@@ -1,7 +1,8 @@
 # SQLite Databases
 *.sqlite3              // Insert this in the .gitignore file 
 
-
+.idea/
+.idea/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
