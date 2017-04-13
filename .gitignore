@@ -1,6 +1,8 @@
 # SQLite Databases
 *.sqlite3              // Insert this in the .gitignore file 
 
+#quitar idea files
+.idea/
 
 
 # Byte-compiled / optimized / DLL files
