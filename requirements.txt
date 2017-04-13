@@ -1,6 +1,13 @@
+#python 2.7 
+#mkvirtualenv bookstore-django27 -p /usr/bin/python2.7
+
+
 appdirs==1.4.3
 Django==1.8
-django-registration-redux==1.5
+django-registration-redux==1.2
 packaging==16.8
 pyparsing==2.2.0
 six==1.10.0
+python-social-auth==0.2.7
+django-bootstrap3==5.4.0
+django-bootstrap-themes==3.1.2
