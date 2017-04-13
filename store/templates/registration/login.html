@@ -1,11 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}
+Accediendo al loggin
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>LOGIN</title>
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
 <form method="post" action=".">
     {% csrf_token %}
     {{form.as_p}}
@@ -19,7 +18,5 @@
     <br>
     <a href="{% url 'social:begin' 'facebook' %}">Log In with Facebook</a>
 
-
-</body>
-</html>
+{% endblock %}
 
