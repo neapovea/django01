@@ -1,0 +1,8 @@
+Gracias,
+
+Inicio para la cueta en el sitio {{ site.name }}, accede aqki para activarla:
+
+http://{{ site.name }} {$ url 'registration_activate' activation_key %}
+
+this link es valido por {{ expiration_days }}. si no esta cuenta ignora este correo.
+
