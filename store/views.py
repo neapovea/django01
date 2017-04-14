@@ -6,15 +6,16 @@ def index(request):
       return render(request,'template.html')
 
 def store(request):
-    count = Book.objects.all().count()
-    context = {'count': count,
-               'page':'welcome to mystery books!',
+    books = Book.objects.all()
+    context = {'books': books,
                }
 
-    request.session['location'] = "NO SE SABE"
-    if request.user.is_authenticated():
-        request.session['location'] = "la TIERRA"
 
     return render(request, 'base.html', context)
 
-    #version_anterio return render(request, 'store.html')
+
+def book_details(request, book_id):
+    context = {
+        'book': Book.objects.get(pk=book_id),
+    }
+    return render(request, 'store/detail.html', context)
