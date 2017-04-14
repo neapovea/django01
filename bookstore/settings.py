@@ -29,7 +29,6 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,7 +40,7 @@ INSTALLED_APPS = (
     'registration',
     'bootstrap3',
     'bootstrap_themes',
-     #'compressor',
+    'compressor',
     'store',
 )
 
@@ -116,6 +115,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+COMPRESS_ENABLED = True
+STATICFILES_FINDERS = (
+        'django.contrib.staticfiles.finders.FileSystemFinder',
+		'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+		'compressor.finders.CompressorFinder',
+)
+
 
 #Registration
 ACCOUNT_ACTIVATION_DAYS=7
@@ -134,6 +141,5 @@ DEFAULT_FROM_EMAIL = 'alejandro.maillard.connecits@gmail.com'
 
 
 #social_auth facebook
-
 SOCIAL_AUTH_FACEBOOK_KEY='1328408347238447'
 SOCIAL_AUTH_FACEBOOK_SECRET='178cff3a5000519786c92df6fbb42b26'

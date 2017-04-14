@@ -2,12 +2,18 @@
 {% load staticfiles %}
 (% load bootstrap3 %}
 (% load bootstrap_themes %}
+{% load compress %}
 (% bootstrap_styles theme='simplex' type='min.css' %}
 
 
 {% block bootstrap3_extra_head %}
-     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css">
-	 <link href="{% static 'base/css/style.css' %}" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css">
+	{% compress css %}
+		<link href="{% static 'base/css/style.css' %}" rel="stylesheet" type="text/css">
+	{% endcompress%}
+	{% compress js %}
+
+	{% endcompress%}
 {% endblock %}
 
 {% block bootstrap3_title %}
@@ -55,7 +61,7 @@
 	     {% block body %}
 		 <div class="col-md-8 col-md-offset-2 col-sm-12 maincontent">
 		   Welcome to our store!
-			 <br>
+			 <hr>
 			 <br>
 			 	{% block content %}
 				{% endblock %}
