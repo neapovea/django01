@@ -11,9 +11,11 @@
 	{% compress css %}
 		<link href="{% static 'base/css/style.css' %}" rel="stylesheet" type="text/css">
 	{% endcompress%}
-	{% compress js %}
-
-	{% endcompress%}
+	 <script src="https://ajax.googleapis.com/ajax/libs.jquery/2.1.4/jquery.min.js"></script>            //Changes were made here
+	 <script src="https://checkout.stripe.com/checkout.js"></script>
+	 {% compress js %}
+	 <script src="{% static 'base/js/jquery.cookie.js' %}"></script>
+	 {% endcompress %}
 {% endblock %}
 
 {% block bootstrap3_title %}
