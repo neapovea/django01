@@ -70,6 +70,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'social.apps.django_app.context_processors.backends',
                 'social.apps.django_app.context_processors.login_redirect',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -119,10 +120,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 COMPRESS_ENABLED = True
 STATICFILES_FINDERS = (
         'django.contrib.staticfiles.finders.FileSystemFinder',
-		'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-		'compressor.finders.CompressorFinder',
+        'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+        'compressor.finders.CompressorFinder',
 )
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_URL = "/media/"
 
 #Registration
 ACCOUNT_ACTIVATION_DAYS=7

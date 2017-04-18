@@ -14,3 +14,4 @@ django-bootstrap-themes==3.1.2
 django-compressor==1.5
 paypalrestsdk==1.10.0
 stripe==1.23.0
+pillow==2.9.0
