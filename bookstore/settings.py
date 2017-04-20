@@ -137,12 +137,13 @@ LOGIN_URL = '/accounts/login/'
 #Email Settings
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST='smtp.gmail.com'
-EMAIL_HOST_USER='neapovea@gmail.com'
-EMAIL_HOST_PASSWORD='yTu1deqe'
+EMAIL_HOST = "smtp.mailgun.org"
+EMAIL_HOST_USER='postmaster@sandbox1f0e95517f454579b3c3e30fd183d97c.mailgun.org'
+EMAIL_HOST_PASSWORD='2fdb06fb5d4380ba886f401b2c09d9e8'
 EMAIL_PORT=587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'alejandro.maillard.connecits@gmail.com'
+DEFAULT_FROM_EMAIL = 'neapovea@gmail.com'
+
 
 
 #social_auth facebook
