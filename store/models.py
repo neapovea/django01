@@ -29,11 +29,13 @@ class Book(models.Model):
     def __unicode__(self):
         return "%s --- %s" % (self.title, self.author)
 
+
 class Review(models.Model):
-    Book= models.ForeignKey(Book)
-    user= models.ForeignKey(User)
-    publish_date= models.DateField(default=timezone.now)
-    text=models.TextField
+    book = models.ForeignKey(Book)
+    user = models.ForeignKey(User)
+    publish_date = models.DateField(default=timezone.now)
+    text = models.TextField(default='')
+
 
 
 class Cart(models.Model):
