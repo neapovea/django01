@@ -48,7 +48,7 @@ def book_details(request, book_id):
                 if Review.objects.filter(user=request.user).count() < 6:
                     subject = 'Your MysteryBooks.com discount code is here'
                     from_email = 'librarian@mysterybooks.com'
-                    to_email = [request.user.mail]
+                    to_email = [request.user.email]
 
                     email_context = Context({
                         'username': request.user.username,
