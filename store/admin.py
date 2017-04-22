@@ -13,9 +13,12 @@ class BookOrderAdmin(admin.ModelAdmin):
 class CartAdmin(admin.ModelAdmin):
     list_display = ('user', 'active', 'order_date')
 
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ('user', 'book', 'publish_date')
+
 
 admin.site.register(Book, BookAdmin)
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(BookOrder, BookOrderAdmin)
 admin.site.register(Cart, CartAdmin)
-admin.site.register(Review)
+admin.site.register(Review, ReviewAdmin)
