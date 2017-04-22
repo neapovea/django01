@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
     'social.apps.django_app.default',
     'registration',
     'bootstrap3',
@@ -153,3 +154,6 @@ SOCIAL_AUTH_FACEBOOK_SECRET='178cff3a5000519786c92df6fbb42b26'
 
 
 DJANGO_LOG_LEVEL=DEBUG
+
+#geip libraries
+GEOIP_PATH= 'geo/'

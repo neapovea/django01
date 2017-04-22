@@ -2,6 +2,9 @@
 
 {% load staticfiles %}
 
+
+
+
 {% block body %}
 <div class="col-md-8 col-md-offset-2 col-sm-12 maincontent">
    <div class="detail_book_display">
@@ -21,11 +24,30 @@
 					{% csrf_token %}
 					{{ form.as_p }}
 					<input type="submit" value="Submit">
-
 				</form>
-
-
 			 {% endif %}
+
+			 	<h4 style="margin-top:20px;">You Are Reviewing Form:</h4>
+			 	<div id="map-canvas" class="detail_book_reviews_map"></div>
+
+			  	<script>
+
+			 	var map;
+			 	function initialize() {
+				map = new google.maps.Map(
+					document.getElementById('map-canvas'),
+						{zoom=8,
+						center: {
+							lat: {{ geo_info.latitude }},
+							lng: {{ geo_info.longitude }}
+								}
+						}
+					);
+				}
+				 AIzaSyDvHn6-m1U7LBZkQ1DR5688shjhr9iaW30
+				google.maps.event.addDomListener(window, 'load', initialize);
+				</script>
+
 
 			 {% for review in reviews %}
 				<div>
