@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'bootstrap3',
     'bootstrap_themes',
     'compressor',
+    'tastypie',
     'store',
 )
 
