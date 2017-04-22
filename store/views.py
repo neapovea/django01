@@ -37,6 +37,14 @@ def book_details(request, book_id):
     context = {
         'book': book,
     }
+    geo_info = GeoIP().city(request.META.get('REMOTE_ADDR'))
+    print geo_info
+    if not geo_info:
+        #poner la ip del equipo local
+        geo_info = GeoIP().city("83.41.163.148")
+    print geo_info
+    context['geo_info'] = geo_info
+
     if request.user.is_authenticated():
         if request.method == "POST":
             form = ReviewForm(request.POST)
@@ -44,7 +52,9 @@ def book_details(request, book_id):
                 new_review = Review.objects.create(
                     user=request.user,
                     book=context['book'],
-                    text=form.cleaned_data.get('text')
+                    text=form.cleaned_data.get('text'),
+                    latitude=geo_info['latitude'],
+                    longitude=geo_info['longitude'],
                 )
                 new_review.save()
                 if Review.objects.filter(user=request.user).count() < 6:
@@ -70,11 +80,6 @@ def book_details(request, book_id):
                 form = ReviewForm()
                 context['form'] = form
     context['reviews'] = book.review_set.all()
-    geo_info = GeoIP().city(request.META.get('REMOTE_ADDR'))
-    if not geo_info:
-        #poner la ip del equipo local
-        geo_info = GeoIP().city("127.0.0.1")
-    context['geo_info'] = geo_info
     return render(request, 'store/detail.html', context)
 
 
