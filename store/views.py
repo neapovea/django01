@@ -9,9 +9,10 @@ from django.template.loader import render_to_string
 from django.contrib.gis.geoip import GeoIP
 
 
-import string,random
+import string, random
 import paypalrestsdk, stripe
-
+import logging
+logger = logging.getLogger(__name__)
 
 from .models import Book, BookOrder, Cart, Review
 from .forms import ReviewForm
@@ -26,6 +27,11 @@ def index(request):
 
 
 def store(request):
+    i = 0
+    while i < 10:
+        logger.debug("test log: %d" % i)
+        i += 1
+
     books = Book.objects.all()
     context = {'books': books,
                }
@@ -40,11 +46,11 @@ def book_details(request, book_id):
         'book': book,
     }
     geo_info = GeoIP().city(request.META.get('REMOTE_ADDR'))
-    print geo_info
+    logger.debug( geo_info)
     if not geo_info:
         #poner la ip del equipo local
         geo_info = GeoIP().city("83.41.163.148")
-    print geo_info
+    logger.debug(geo_info)
     context['geo_info'] = geo_info
 
     if request.user.is_authenticated():
